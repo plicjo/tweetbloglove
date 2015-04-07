@@ -1,0 +1,19 @@
+development:
+  adapter: postgresql
+  database: tweetbloglove
+  pool: 5
+  timeout: 5000
+
+test: &test
+  adapter: postgresql
+  database: tweetbloglove-test
+  pool: 5
+  timeout: 5000
+cucumber:
+  <<: *test
+
+production:
+  adapter: postgresql
+  database: tweetbloglove-production
+  pool: 5
+  timeout: 5000
