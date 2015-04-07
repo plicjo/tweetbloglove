@@ -10,12 +10,19 @@ Given(/^the author is on the sign in page$/) do
   visit new_author_session_path
 end
 
+Given(/^an author is on the posts page$/) do
+  visit posts_path
+end
+
+When(/^the author clicks "(.*?)"$/) do |link_text|
+  click_on link_text
+end
+
 When(/^the visitor signs up to be an author$/) do
   fill_in 'author_email', with: Faker::Internet.email
   fill_in 'author_password', with: 'password'
   fill_in 'author_password_confirmation', with: 'password'
   click_on 'Sign up'
-
 end
 
 When(/^the author signs in$/) do
