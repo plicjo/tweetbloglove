@@ -2,4 +2,5 @@
  *= require_self
  *= require twbs
  *= require theme
+ *= require flashes
 */
