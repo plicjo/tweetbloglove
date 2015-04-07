@@ -3,4 +3,6 @@
  *= require custom_bootstrap
  *= require theme
  *= require flashes
+ *= require variables
+ *= require convenience
 */

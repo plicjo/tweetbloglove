@@ -1,0 +1,26 @@
+$black:         #333;
+$dark-blue:     #0c386c;
+$dark-text:     #575755;
+$dark-text-hover:  #555;
+$facebook:      #0A58B4;
+$featured-text: #EF9E3B;
+$footer-gray:   #D5D5D5;
+$footer-text:   #818181;
+$green:         #3EB65C;
+$light-blue:    #529ed6;
+$primary-blue:  #277de2;
+$red:           #d95631;
+$light-gray:    #e7e7e8;
+$link-hover:    #23527c;
+$linkedin:      #069;
+$light-text:    #9c9896;
+$white:         #fff;
+
+$sm: 768px;
+$md: 992px;
+$lg: 1200px;
+
+@mixin sm     { @media (min-width: $sm) {@content } }
+@mixin md     { @media (min-width: $md) {@content } }
+@mixin lg     { @media (min-width: $lg) {@content } }
+@mixin mobile { @media (max-width: $sm) {@content } }
