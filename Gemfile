@@ -30,6 +30,7 @@ end
 group :development do
   gem 'annotate'
   gem 'better_errors' # Better Ruby errors
+  gem 'binding_of_caller'
   gem 'byebug'
   gem 'quiet_assets' # Mute assets in Rails server
 end
