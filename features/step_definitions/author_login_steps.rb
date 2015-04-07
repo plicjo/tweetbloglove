@@ -14,8 +14,16 @@ Given(/^an author is on the posts page$/) do
   visit posts_path
 end
 
+Given(/^an author is logged in$/) do
+  steps %Q{
+    Given an author has already signed up
+    Given the author is on the sign in page
+    When  the author signs in
+  }
+end
+
 When(/^the author clicks "(.*?)"$/) do |link_text|
-  click_on link_text
+  click_link_or_button link_text
 end
 
 When(/^the visitor signs up to be an author$/) do

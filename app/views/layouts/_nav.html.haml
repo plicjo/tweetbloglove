@@ -10,5 +10,11 @@
       %a.navbar-brand{:href => "#page-top"} TweetBlogLove
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-right
-        %li
-          = link_to 'Sign Out', destroy_author_session_path, method: :delete
+        - if author_signed_in?
+          %li
+            = link_to 'Sign Out', '/logout'
+        - else
+          %li
+            = link_to 'Sign In', new_author_session_path
+          %li
+            = link_to 'Sign Up', new_author_registration_path

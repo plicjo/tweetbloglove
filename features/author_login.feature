@@ -13,7 +13,7 @@ Feature: Author Login
     Then  the author should see "Signed in successfully."
   
   Scenario: Author signs out
-    Given an author has already signed up
+    Given an author is logged in
     Given an author is on the posts page
     When  the author clicks "Sign Out"
     Then  the author should see "Signed out successfully."
