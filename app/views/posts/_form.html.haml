@@ -1,0 +1,12 @@
+.row
+  .col-xs-6
+    = simple_form_for @post, html: { class: 'form-horizontal', wrapper: :horizontal_form, multipart: true, wrapper_mappings: { check_boxes: :horizontal_radio_and_checkboxes, radio_buttons: :horizontal_radio_and_checkboxes, file: :horizontal_file_input,boolean: :horizontal_boolean } } do |f|
+      = f.error_notification
+      = f.input :title
+      = f.input :body, input_html: { rows: 8 }
+      = image_tag(@post.featured_image_url) if @post.featured_image?
+      = f.label 'Upload a featured image'
+      = f.file_field   :featured_image
+      = f.hidden_field :featured_image_cache
+      = f.error :featured_image, id: 'featured_image_error'
+      = f.submit class: 'btn btn-primary top-20px'

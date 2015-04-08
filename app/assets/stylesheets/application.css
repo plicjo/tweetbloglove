@@ -5,4 +5,5 @@
  *= require flashes
  *= require variables
  *= require convenience
+ *= require errors
 */

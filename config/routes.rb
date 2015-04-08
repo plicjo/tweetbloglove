@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :posts, only: :index
+  resources :posts
   root to: 'posts#index'
 
   devise_for :authors

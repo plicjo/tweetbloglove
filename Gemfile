@@ -7,6 +7,7 @@ gem 'pg' # Postgres Database
 
 gem 'bcrypt' # Encryption
 gem 'bootstrap-sass' # Front End Framework
+gem 'carrierwave' # File Uploads
 gem 'coffee-rails', '~> 4.1.0'
 gem 'devise' # Authentication
 gem 'haml-rails' # HTML Preprocessor
@@ -14,6 +15,8 @@ gem 'hirb' # Pretty console
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
+gem 'pygments.rb' # Syntax Highlighting
+gem 'redcarpet' # Markdown text
 gem 'responders' # Clean controllers
 gem 'sass-rails', '~> 5.0'
 gem 'simple_form' # Form generator
@@ -25,6 +28,7 @@ group :development, :test do
   gem 'spring' # Fast Application loading
   gem 'spring-commands-cucumber' # Spring for Cucumber
   gem 'spring-commands-rspec'    # Spring for RSpec
+  gem 'faker'                    # Fake data
 end
 
 group :development do
@@ -41,7 +45,6 @@ group :test do
   gem 'cucumber-rails', require: false # Acceptance tests
   gem 'database_cleaner'               # Clean test db
   gem 'factory_girl_rails'             # Factories for tests
-  gem 'faker'                          # Fake data
   gem 'guard'                          # Watch project directory
   gem 'guard-livereload'               # Reload page on save
   gem 'guard-cucumber'                 # Run features on save
@@ -49,6 +52,7 @@ group :test do
   gem 'launchy'                        # Launch browser on test failure
   gem 'rspec-rails'                    # Functional tests
   gem 'simplecov'                      # See test coverage
+  gem 'shoulda-matchers'               # Quick test writing
 end
 
 group :production do

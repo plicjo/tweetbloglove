@@ -1,0 +1,4 @@
+%h1= @post.title
+- if @post.featured_image?
+  #featured-image= image_tag @post.featured_image
+= markdown(@post.body)
