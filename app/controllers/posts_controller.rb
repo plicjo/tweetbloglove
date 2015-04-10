@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  
+  before_action :authenticate_author!, only: [:new, :create]
   def new
     @post = Post.new
   end

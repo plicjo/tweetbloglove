@@ -2,6 +2,14 @@ Given(/^is on the new post page$/) do
   visit new_post_path
 end
 
+Given(/^a visitor is not signed in$/) do
+  # Do nothing
+end
+
+Given(/^tries to visit the new post page$/) do
+  visit new_post_path
+end
+
 When(/^I write a post using Markdown$/) do
   fill_in 'post_title', with: 'Example Post'
   fill_in 'post_body',  with: '## This will be a h2'
@@ -24,4 +32,8 @@ end
 
 Then(/^the author should not see any markdown$/) do
   page.should_not have_content '##'
+end
+
+Then(/^I should see "(.*?)"$/) do |text|
+  page.should have_content text
 end
