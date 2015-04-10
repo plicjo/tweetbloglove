@@ -8,5 +8,6 @@
       = f.label 'Upload a featured image'
       = f.file_field   :featured_image
       = f.hidden_field :featured_image_cache
+      = f.hidden_field :author_id, value: "#{current_author.id}"
       = f.error :featured_image, id: 'featured_image_error'
       = f.submit class: 'btn btn-primary top-20px'

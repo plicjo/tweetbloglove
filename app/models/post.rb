@@ -14,7 +14,12 @@
 class Post < ActiveRecord::Base
   belongs_to :author
   mount_uploader :featured_image, FeaturedImageUploader
+  before_create :post_to_twitter
 
-  validates :title, :body, presence: true
+  validates :title, :body, :author_id, presence: true
   validates_presence_of :featured_image, message: 'needs to be uploaded.'
+
+  def post_to_twitter
+    self.author.twitter.update(title)
+  end
 end

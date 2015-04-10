@@ -5,6 +5,7 @@
 # files.
 
 require 'cucumber/rails'
+require 'cucumber/rspec/doubles'
 
 # Configure SimpleCov
 require 'simplecov'

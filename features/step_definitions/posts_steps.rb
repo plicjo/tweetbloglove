@@ -12,6 +12,9 @@ When(/^I upload an image$/) do
 end
 
 When(/^I click "(.*?)"$/) do |link_text|
+  stub_request(:post, "https://api.twitter.com/1.1/statuses/update.json")
+  
+  allow_any_instance_of(Twitter::REST::Client).to receive(:update).and_return(twitter_status_update_response)
   click_link_or_button link_text
 end
 
