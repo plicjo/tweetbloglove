@@ -17,22 +17,15 @@ ActiveRecord::Schema.define(version: 20150408180746) do
   enable_extension "plpgsql"
 
   create_table "authors", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.inet     "current_sign_in_ip"
-    t.inet     "last_sign_in_ip"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.string   "token"
+    t.string   "secret"
+    t.string   "profile_image"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "authors", ["email"], name: "index_authors_on_email", unique: true, using: :btree
-  add_index "authors", ["reset_password_token"], name: "index_authors_on_reset_password_token", unique: true, using: :btree
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"

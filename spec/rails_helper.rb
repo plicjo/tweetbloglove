@@ -5,6 +5,10 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 
+# Load test helper methods
+require 'support/test_helper.rb'
+include TestHelper
+
 # Configure SimpleCov
 require 'simplecov'
 SimpleCov.start

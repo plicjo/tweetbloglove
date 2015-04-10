@@ -13,7 +13,7 @@ TweetBlogLove is a blogging platform that notifies twitter with each new blog po
 * Testing: RSpec | Cucumber
 * Front-End: Bootstrap | jQuery
 
-* Authentication: Devise
+* Authentication: Omniauth-Twitter
 * Form Builder: Simple Form
 
 ##Getting Started##

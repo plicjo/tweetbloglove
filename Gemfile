@@ -9,12 +9,13 @@ gem 'bcrypt' # Encryption
 gem 'bootstrap-sass' # Front End Framework
 gem 'carrierwave' # File Uploads
 gem 'coffee-rails', '~> 4.1.0'
-gem 'devise' # Authentication
+gem 'figaro' # Environment Variables
 gem 'haml-rails' # HTML Preprocessor
 gem 'hirb' # Pretty console
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
+gem 'omniauth-twitter' # Twitter Authentication
 gem 'pygments.rb' # Syntax Highlighting
 gem 'redcarpet' # Markdown text
 gem 'responders' # Clean controllers
@@ -53,6 +54,7 @@ group :test do
   gem 'rspec-rails'                    # Functional tests
   gem 'simplecov'                      # See test coverage
   gem 'shoulda-matchers'               # Quick test writing
+  gem 'webmock'                        # Fake HTTP Requests
 end
 
 group :production do

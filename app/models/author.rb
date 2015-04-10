@@ -18,10 +18,16 @@
 #
 
 class Author < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-
   has_many :posts
+
+  def self.find_or_create_from_auth_hash(auth_hash)
+    author = where(provider: auth_hash.provider, uid: auth_hash.uid).first_or_create
+    author.update(
+      name:          auth_hash.info.name,
+      profile_image: auth_hash.info.image,
+      token:         auth_hash.credentials.token,
+      secret:        auth_hash.credentials.secret
+    )
+    author
+  end
 end
