@@ -10,18 +10,20 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_author, :author_signed_in?
 
-  def current_author
-    @current_author ||= Author.find(session[:author_id]) if session[:author_id]
-  end
+  private
 
-  def author_signed_in?
-    return true if current_author
-  end
-
-  def authenticate_author!
-    if !current_author
-      redirect_to root_url, alert: 'Please sign in first.'
+    def current_author
+      @current_author ||= Author.find(session[:author_id]) if session[:author_id]
     end
-  end
+
+    def author_signed_in?
+      return true if current_author
+    end
+
+    def authenticate_author!
+      if !current_author
+        redirect_to root_url, alert: 'Please sign in first.'
+      end
+    end
 
 end
