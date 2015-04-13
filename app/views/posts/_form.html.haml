@@ -4,7 +4,7 @@
       = f.error_notification
       = f.input :title
       = f.input :body, input_html: { rows: 8 }
-      = image_tag(@post.featured_image_url) if @post.featured_image?
+      = image_tag(@post.featured_image_url, class: 'img-responsive') if @post.featured_image?
       = f.label 'Upload a featured image'
       = f.file_field   :featured_image
       = f.hidden_field :featured_image_cache
