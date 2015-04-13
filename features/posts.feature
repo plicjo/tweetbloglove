@@ -17,9 +17,11 @@ Feature: Posts
     Then  I should see "Please sign in first."
 
   Scenario: Author edits a post
-    Given an author is logged in
-    And an author has created a post
-    When the author submits an edit post form
-    Then the author should see "Post was successfully updated."
+    Given an author has created a post
+    Given the author is logged in
+    When  the author clicks "Edit"
+    Then  the author should see "Edit Post"
+    When  the author submits a valid edit post form
+    Then  the author should see "Post was successfully updated."
 
 

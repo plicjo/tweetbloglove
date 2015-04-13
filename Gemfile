@@ -24,6 +24,8 @@ gem 'simple_form' # Form generator
 gem 'turbolinks'
 gem 'twitter' # Twitter API
 gem 'uglifier', '>= 1.3.0'
+gem 'will_paginate' # Pagination
+gem 'will_paginate-bootstrap' # Bootstrap styles for pagination
 
 group :development, :test do
   gem 'pry' # Code debugger

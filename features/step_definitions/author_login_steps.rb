@@ -6,11 +6,13 @@ When(/^the author signs in with Twitter$/) do
   click_on 'Sign In'
 end
 
-Given(/^an author is logged in$/) do
+
+Given(/^(?:an|the) author is logged in$/) do
   steps %Q{
     Given the author is on the home page
     When  the author signs in with Twitter
   }
+  @author = Author.first
 end
 
 When(/^the author clicks "(.*?)"$/) do |link_text|
