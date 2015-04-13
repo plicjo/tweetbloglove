@@ -57,6 +57,7 @@ group :test do
   gem 'rspec-rails'                    # Functional tests
   gem 'simplecov'                      # See test coverage
   gem 'shoulda-matchers'               # Quick test writing
+  gem 'shoulda-callback-matchers', '~> 1.1.1' # Rspec callback matchers
   gem 'webmock'                        # Fake HTTP Requests
 end
 
