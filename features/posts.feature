@@ -24,4 +24,8 @@ Feature: Posts
     When  the author submits a valid edit post form
     Then  the author should see "Post was successfully updated."
 
-
+  Scenario: Author views a post
+    Given an author has created a post
+    Given the author is logged in
+    When  the author clicks "View"
+    Then  the author should see the post

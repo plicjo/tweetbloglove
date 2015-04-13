@@ -50,3 +50,7 @@ When(/^the author submits a valid edit post form$/) do
   fill_in 'post_body',  with: Faker::Lorem.paragraph(2)
   click_button 'Update Post'
 end
+
+Then(/^the author should see the post$/) do
+  page.should have_content @post.title
+end

@@ -6,11 +6,12 @@
         - @posts.each do |post|
           %li.list-group-item
             / = link_to 'Delete', post_path(post), method: :delete, :data => { :confirm => 'Are you sure you want to delete this post?' }, class: 'delete btn btn-default btn-xs pull-right left-10px'
-            / = link_to 'View', post_path(post), class: 'btn btn-default btn-xs pull-right', target: '_blank'
             = post.title
-            = link_to edit_post_path(post) do
-              .left-10px.inline.pull-right
-                Edit
+            .pull-right
+              = link_to edit_post_path(post) do
+                .left-10px.inline.pull-right
+                  Edit
+              = link_to 'View', post_path(post), class: 'pull-right right-10px left-10px', target: '_blank'
       = will_paginate @posts, renderer: BootstrapPagination::Rails
 - else
   %h3
