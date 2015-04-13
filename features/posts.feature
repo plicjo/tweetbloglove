@@ -15,3 +15,11 @@ Feature: Posts
     Given a visitor is not signed in
     And   tries to visit the new post page
     Then  I should see "Please sign in first."
+
+  Scenario: Author edits a post
+    Given an author is logged in
+    And an author has created a post
+    When the author submits an edit post form
+    Then the author should see "Post was successfully updated."
+
+

@@ -21,7 +21,7 @@ end
 
 When(/^I click "(.*?)"$/) do |link_text|
   stub_request(:post, "https://api.twitter.com/1.1/statuses/update.json")
-  
+
   allow_any_instance_of(Twitter::REST::Client).to receive(:update).and_return(twitter_status_update_response)
   click_link_or_button link_text
 end
@@ -36,4 +36,14 @@ end
 
 Then(/^I should see "(.*?)"$/) do |text|
   page.should have_content text
+end
+
+Given(/^an author has created a post$/) do
+  create :post
+end
+
+When(/^the author submits an edit post form$/) do
+  fill_in 'post_title', with: 'New Post Title'
+  fill_in 'post_body',  with: Faker::Lorem.paragraph(2)
+  click_button 'Update Post'
 end
