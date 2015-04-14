@@ -17,12 +17,13 @@ describe TweetConstructorService do
     end
 
     it "generates a normal tweet" do
-      expect(tweet_constructor.tweet).to be_a String
-      expect(tweet_constructor.tweet.length).to be < 140
+      expect(tweet_constructor.tweet).to be
     end
 
-    it "truncates a tweet that would be greater than 140 characters" do
-      expect(long_tweet_constructor.tweet.length).to be < 140
+    it "truncates a tweet's content that would be greater than 140 characters" do
+      tweet = long_tweet_constructor.tweet
+      tweet_with_link_removed = tweet.split('...').first
+      expect(tweet_with_link_removed.length).to be 115
     end
 
     it "includes the twitter_message if it was provided" do
