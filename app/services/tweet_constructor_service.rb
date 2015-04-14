@@ -3,6 +3,7 @@
 # Content(105 char) + '...' + Link(22 char) = 140 char
 class TweetConstructorService
   include Rails.application.routes.url_helpers
+  MAX_CHARACTERS = 105
 
   attr_reader :link, :content
 
@@ -12,16 +13,16 @@ class TweetConstructorService
   end
 
   def generate_tweet
-    "#{truncate(@content)}#{@link}"
+    "#{truncate_content}#{@link}"
   end
 
   private
 
-    def truncate(text, max = 104)
-      if text.length > max 
-        "#{text[0...max]}..."
+    def truncate_content
+      if @content.length > MAX_CHARACTERS
+        "#{@content[0...(MAX_CHARACTERS - 1)]}..."
       else
-        "#{text}..."
+        "#{@content}..."
       end
     end
 
