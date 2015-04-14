@@ -20,8 +20,12 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
     respond_with @post
+  end
+
+  def destroy
+    @post.destroy
+    respond_with @post, location: root_path
   end
 
   def index

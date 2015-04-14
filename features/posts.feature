@@ -29,3 +29,9 @@ Feature: Posts
     Given the author is logged in
     When  the author clicks "View"
     Then  the author should see the post
+
+  Scenario: Author deletes a post
+    Given an author has created a post
+    Given the author is logged in
+    When  the author clicks "Delete"
+    Then  the author should see "Post was successfully destroyed."
