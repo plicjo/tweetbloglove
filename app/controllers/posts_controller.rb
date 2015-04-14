@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
-  before_action :authenticate_author!, only: [:new, :create]
-  before_action :get_post, only: [:edit, :update]
-  
+  before_action :authenticate_author!, except: :index
+  before_action :get_post, only: [:edit, :update, :show, :destroy]
+
   def new
     @post = Post.new
   end
