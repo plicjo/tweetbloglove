@@ -21,9 +21,7 @@ class ApplicationController < ActionController::Base
     end
 
     def authenticate_author!
-      if !current_author
-        redirect_to root_url, alert: 'Please sign in first.'
-      end
+      redirect_to root_url, alert: 'Please sign in first.' unless current_author
     end
 
 end
