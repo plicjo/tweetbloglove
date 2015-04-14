@@ -10,4 +10,5 @@
       = f.hidden_field :featured_image_cache
       = f.hidden_field :author_id, value: "#{current_author.id}" if author_signed_in?
       = f.error :featured_image, id: 'featured_image_error'
+      = f.input :twitter_message, label: "Twitter Message (optional)"
       = f.submit class: 'btn btn-primary top-20px'

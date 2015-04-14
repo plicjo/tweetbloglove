@@ -8,8 +8,8 @@ class TweetConstructorService
   attr_reader :link, :content
 
   def initialize post
-    @link    = "#{post_url(post)}"
-    @content = "#{post.title}"
+    @link    = post_url(post)
+    @content = post.twitter_message || post.title.strip
   end
 
   def generate_tweet

@@ -10,11 +10,16 @@ describe TweetConstructorService do
   let(:tweet) { TweetConstructorService.new(post) }
 
 
-  it "it initializes with a post link" do
+  it "initializes with a post link" do
     expect(tweet.link).to include 'http://'
   end
 
-  it "it initializes with post content" do
+  it "initializes @content with twitter_message" do
+    post.twitter_message = "foo"
+    expect(tweet.content).to include "foo"
+  end
+
+  it "initializes @content with post.title if no twitter_message is specified" do
     expect(tweet.content).to include post.title
   end
 

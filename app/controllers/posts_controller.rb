@@ -31,7 +31,9 @@ class PostsController < ApplicationController
   private
 
     def post_params
-      params.require(:post).permit(:title, :body, :featured_image, :featured_image_cache, :author_id)
+      params.require(:post).permit(
+        :title, :body, :featured_image, :twitter_message,
+        :featured_image_cache, :author_id)
     end
 
     def get_post
