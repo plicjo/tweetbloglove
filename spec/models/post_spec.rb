@@ -19,7 +19,6 @@ RSpec.describe Post, type: :model do
   it { should validate_presence_of(:body) }
   it { should validate_presence_of(:author_id) }
   it { should validate_length_of(:twitter_message) }
-  it { should_not allow_value("", " ").for(:twitter_message) }
   it { should allow_value(nil).for(:twitter_message) }
   it { is_expected.to callback(:post_to_twitter).after(:create) }
   it { is_expected.to_not callback(:post_to_twitter).before(:update) }

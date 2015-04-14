@@ -17,8 +17,7 @@ class Post < ActiveRecord::Base
   after_create :post_to_twitter
 
   validates :title, :body, :author_id, presence: true
-  validates :twitter_message, length: { maximum: 105 }
-  validates :twitter_message, allow_blank: false, allow_nil: true
+  validates :twitter_message, length: { maximum: 105 }, allow_blank: true
   validates_presence_of :featured_image, message: 'needs to be uploaded.'
 
   private
