@@ -19,7 +19,14 @@ class Post < ActiveRecord::Base
   validates :title, :body, :author_id, presence: true
   validates_presence_of :featured_image, message: 'needs to be uploaded.'
 
-  def post_to_twitter
-    self.author.twitter.update(title)
-  end
+  private
+
+    # The tweet constructor requires the post object to be saved
+    def post_to_twitter
+      if self.id
+        tweet_content = TweetConstructorService.new(self).generate_tweet
+        self.author.twitter.update(tweet_content)
+      end
+    end
+
 end
