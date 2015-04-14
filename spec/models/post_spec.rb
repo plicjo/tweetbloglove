@@ -18,7 +18,7 @@ RSpec.describe Post, type: :model do
   it { should validate_presence_of(:title) }
   it { should validate_presence_of(:body) }
   it { should validate_presence_of(:author_id) }
-  it { is_expected.to callback(:post_to_twitter).before(:create) }
+  it { is_expected.to callback(:post_to_twitter).after(:create) }
   it { is_expected.to_not callback(:post_to_twitter).before(:update) }
 
   let(:post) { Post.create }
