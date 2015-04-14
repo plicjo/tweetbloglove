@@ -6,36 +6,35 @@ describe TweetConstructorService do
     allow_any_instance_of(Twitter::REST::Client).to receive(:update).and_return(twitter_status_update_response)
   end
 
-  let(:post) { create :post_with_author          }
-  let(:tweet) { TweetConstructorService.new(post) }
+  let!(:post) { create :post_with_author }
+  let!(:post_with_long_title) { create :post_with_long_title }
+  let(:tweet_constructor) { TweetConstructorService.new(post) }
+  let(:long_tweet_constructor){ TweetConstructorService.new(post_with_long_title) }
 
+  context '#tweet' do
+    it "returns an href" do
+      expect(tweet_constructor.tweet).to include 'http://'
+    end
 
-  it "initializes with a post link" do
-    expect(tweet.link).to include 'http://'
-  end
-
-  it "initializes @content with twitter_message" do
-    post.twitter_message = "foo"
-    expect(tweet.content).to include "foo"
-  end
-
-  it "initializes @content with post.title if no twitter_message is specified" do
-    expect(tweet.content).to include post.title
-  end
-
-  context "#generate_tweet" do
-
-    let(:post_with_long_title) { create :post_with_long_title }
-    let(:long_tweet){ TweetConstructorService.new(post_with_long_title) }
-    
-    it "generates a tweet less than or equal to 140 characters" do
-      expect(tweet.generate_tweet.length).to be < 140
+    it "generates a normal tweet" do
+      expect(tweet_constructor.tweet).to be_a String
+      expect(tweet_constructor.tweet.length).to be < 140
     end
 
     it "truncates a tweet that would be greater than 140 characters" do
-      expect(long_tweet.generate_tweet.length).to be < 140
+      expect(long_tweet_constructor.tweet.length).to be < 140
     end
-  
+
+    it "includes the twitter_message if it was provided" do
+      post.twitter_message = "foo"
+      expect(tweet_constructor.tweet).to include "foo"
+    end
+
+    it "includes the post.title if twitter_message is empty" do
+      post.twitter_message = " "
+      expect(tweet_constructor.tweet).to include post.title
+    end
+
   end
   
 end

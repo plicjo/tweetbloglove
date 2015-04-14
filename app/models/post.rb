@@ -23,7 +23,7 @@ class Post < ActiveRecord::Base
   private
 
     def post_to_twitter
-      tweet_content = TweetConstructorService.new(self).generate_tweet
+      tweet_content = TweetConstructorService.new(self).tweet
       self.author.twitter.update(tweet_content)
     end
 
