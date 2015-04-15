@@ -1,9 +1,5 @@
 class PostPolicy < ApplicationPolicy
   
-  def index?
-    true
-  end
-
   def show?
     true
   end
@@ -29,5 +25,5 @@ class PostPolicy < ApplicationPolicy
     def post
       record
     end
-    
+
 end
