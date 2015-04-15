@@ -18,4 +18,8 @@ FactoryGirl.define do
     name Faker::Name.name
   end
 
+  factory :another_author, class: Author do
+    name "John"
+  end
+
 end

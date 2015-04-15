@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_author!, except: [ :index, :show ]
   before_action :get_post, only: [:edit, :update, :show, :destroy]
   after_action :verify_authorized
-  
+
   def index
     @posts = Post.paginate(page: params[:page], per_page: 10)
     authorize @posts
@@ -14,7 +14,6 @@ class PostsController < ApplicationController
   end
 
   def edit
-    authorize @post
   end
 
   def create
@@ -26,18 +25,15 @@ class PostsController < ApplicationController
   def update
     @post.update(post_params)
     respond_with @post, location: root_path
-    authorize @post
   end
 
   def show
     respond_with @post
-    authorize @post
   end
 
   def destroy
     @post.destroy
     respond_with @post, location: root_path
-    authorize @post
   end
 
   private
@@ -50,6 +46,7 @@ class PostsController < ApplicationController
 
     def get_post
       @post = Post.find(params[:id])
+      authorize @post
     end
 
 end
