@@ -19,11 +19,11 @@ RSpec.describe Author, type: :model do
 
   let(:find_or_create_author) { Author.find_or_create_from_auth_hash(auth_hash) }
   let(:auth_hash) { twitter_auth_hash }
-  
+
   it { should have_many(:posts) }
 
   describe '.find_or_create_from_auth_hash' do
-    
+
     it 'creates a user when none exists' do
       expect{ find_or_create_author }.to change(Author, :count).by 1
     end
