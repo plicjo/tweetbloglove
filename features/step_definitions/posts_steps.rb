@@ -54,3 +54,7 @@ end
 Then(/^the author should see the post$/) do
   page.should have_content @post.title
 end
+
+Then(/^the twitter message input should be disabled$/) do
+  page.should have_css '#post_twitter_message.disabled'
+end

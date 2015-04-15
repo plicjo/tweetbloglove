@@ -35,3 +35,11 @@ Feature: Posts
     Given the author is logged in
     When  the author clicks "Delete"
     Then  the author should see "Post was successfully destroyed."
+  
+  Scenario: Author is unable to edit the tweet message on the edit page
+    Given an author has created a post
+    Given the author is logged in
+    When  the author clicks "Edit"
+    Then  the author should see "Edit Post"
+    Then  the twitter message input should be disabled
+ 
