@@ -1,0 +1,8 @@
+en:
+ pundit:
+   default: 'You cannot perform this action.'
+   post_policy:
+     edit?:   'You cannot edit this post!'
+     update?: 'You cannot edit this post!'
+     new?:    'You cannot create posts!'
+     create?: 'You cannot create posts!'

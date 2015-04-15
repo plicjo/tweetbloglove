@@ -3,6 +3,7 @@ Given(/^the author is on the home page$/) do
 end
 
 When(/^the author signs in with Twitter$/) do
+  OmniAuth.config.mock_auth[:twitter] = twitter_auth_hash
   click_on 'Sign In'
 end
 

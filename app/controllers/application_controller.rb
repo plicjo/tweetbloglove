@@ -4,7 +4,9 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+
   include Pundit
+  rescue_from Pundit::NotAuthorizedError, with: :author_not_authorized
 
   self.responder = ApplicationResponder
   respond_to :html
@@ -26,6 +28,13 @@ class ApplicationController < ActionController::Base
 
     def authenticate_author!
       redirect_to root_url, alert: 'Please sign in first.' unless current_author
+    end
+
+    def author_not_authorized(exception)
+      policy_name = exception.policy.class.to_s.underscore
+
+      flash[:error] = t "#{policy_name}.#{exception.query}", scope: "pundit", default: :default
+      redirect_to(root_path)
     end
 
 end
