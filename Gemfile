@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.2.1'
 gem 'rails', '4.2.1'
 gem 'passenger' # Web Server
-gem 'pg' # Postgres Database     
+gem 'pg' # Postgres Database
 
 gem 'bcrypt' # Encryption
 gem 'bootstrap-sass' # Front End Framework
@@ -17,6 +17,7 @@ gem 'jquery-rails'
 gem 'jquery-turbolinks'
 gem 'omniauth-twitter' # Twitter Authentication
 gem 'pygments.rb' # Syntax Highlighting
+gem 'pundit' # Authorization
 gem 'redcarpet' # Markdown text
 gem 'responders' # Clean controllers
 gem 'sass-rails', '~> 5.0'

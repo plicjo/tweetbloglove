@@ -230,6 +230,8 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    pundit (0.3.0)
+      activesupport (>= 3.0.0)
     pygments.rb (0.6.3)
       posix-spawn (~> 0.3.6)
       yajl-ruby (~> 1.2.0)
@@ -409,6 +411,7 @@ DEPENDENCIES
   pg
   poltergeist
   pry
+  pundit
   pygments.rb
   quiet_assets
   rails (= 4.2.1)
