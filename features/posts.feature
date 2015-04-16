@@ -16,7 +16,7 @@ Feature: Posts
     And   tries to visit the new post page
     Then  I should see "Please sign in first."
 
-  Scenario: Author edits a post
+  Scenario: Author edits and publishes a post
     Given an author has created a post
     Given the author is logged in
     When  the author clicks "Edit"

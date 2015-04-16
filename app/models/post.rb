@@ -17,6 +17,7 @@ class Post < ActiveRecord::Base
   belongs_to :author
   mount_uploader :featured_image, FeaturedImageUploader
   after_create :post_to_twitter
+  attr_accessor :publish_date
 
   validates :title, :body, :author_id, presence: true
   validates :twitter_message, length: { maximum: 105 }, allow_blank: true
@@ -25,6 +26,10 @@ class Post < ActiveRecord::Base
   def self.published_or_authored author
     (published_posts + authored_posts(author)).uniq
   end
+
+  def publish_later publish_time
+    PublishPostsJob.set(wait_until: publish_time).perform_later(self.id)
+  end 
 
   private
 

@@ -3,6 +3,6 @@ class PublishPostsJob < ActiveJob::Base
 
   def perform(post_id)
     post = Post.find(post_id)
-    post.update(published: true)
+    post.update(published: true) unless post.published
   end
 end

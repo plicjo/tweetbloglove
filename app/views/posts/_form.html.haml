@@ -14,4 +14,11 @@
         = f.input :twitter_message, label: "Twitter Message (optional)", disabled: true
       - else
         = f.input :twitter_message, label: "Twitter Message (optional)"
+      = f.input :published, as: :boolean, label: 'Published?'
+      - unless @post.published
+        = f.input :publish_date, as: :datetime, label: 'Publish Later'
+        = f.input :publish_in_future, as: :boolean, label: 'To Be Published in the Future?'
+      - else
+        = f.input :publish_date, as: :datetime, disabled: true, label: 'Post is published.'
+        = f.input :publish_in_future, as: :boolean, disabled: true, label: 'To Be Published in the Future?'
       = f.submit class: 'btn btn-primary top-20px'

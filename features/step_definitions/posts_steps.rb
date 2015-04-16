@@ -21,6 +21,7 @@ end
 When(/^the author submits a valid edit post form$/) do
   fill_in 'post_title', with: 'New Post Title'
   fill_in 'post_body',  with: Faker::Lorem.paragraph(2)
+  check 'post_published'
   click_button 'Update Post'
 end
 
