@@ -21,6 +21,7 @@ gem 'pundit' # Authorization
 gem 'redcarpet' # Markdown text
 gem 'responders' # Clean controllers
 gem 'sass-rails', '~> 5.0'
+gem 'sidekiq' # Background Job Queue
 gem 'simple_form' # Form generator
 gem 'turbolinks'
 gem 'twitter' # Twitter API
