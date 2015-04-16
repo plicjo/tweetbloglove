@@ -58,3 +58,7 @@ end
 Then(/^the twitter message input should be disabled$/) do
   page.should have_css '#post_twitter_message.disabled'
 end
+
+Then(/^the other author "(.*?)" should not see the original post$/) do |arg1|
+  page.should_not have_content @post.title
+end

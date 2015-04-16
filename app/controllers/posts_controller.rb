@@ -1,11 +1,12 @@
 class PostsController < ApplicationController
   before_action :authenticate_author!, except: [ :index, :show ]
   before_action :get_post, only: [:edit, :update, :show, :destroy]
-  after_action :verify_authorized
+  after_action :verify_authorized, except: :index
+  require 'will_paginate/array'
 
   def index
-    @posts = Post.paginate(page: params[:page], per_page: 10)
-    authorize @posts
+    @posts = Post.published_or_authored(current_author)
+                 .paginate(page: params[:page], per_page: 10)
   end
 
   def new
