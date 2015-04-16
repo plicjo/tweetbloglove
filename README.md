@@ -31,13 +31,9 @@ TweetBlogLove is a blogging platform that notifies twitter with each new blog po
 Tests that require Javascript are run with the `poltergeist` gem.
 
 ##Deploying##
-Cutting-edge code lives on the ***dev*** branch.
-
 
 Commits to the ***master*** branch run tests on [CircleCI](www.circleci.com) and deploys to the [live site](tweetbloglove.herokuapp.com) if all the tests pass.
 
-##Services in Production##
-Images are uploaded to an Amazon S3 bucket.
 
 ##Credits##
 Author: [Joshua Plicque](mailto:plicjo@gmail.com)

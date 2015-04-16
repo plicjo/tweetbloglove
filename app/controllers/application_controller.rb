@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
   def pundit_user
     current_author
   end
+  
   private
 
     def current_author

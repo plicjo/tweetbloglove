@@ -20,7 +20,7 @@ describe TweetConstructorService do
       expect(tweet_constructor.tweet).to be
     end
 
-    it "truncates a tweet's content that would be greater than 140 characters" do
+    it "truncates a tweet's content that would be greater than 115 characters" do
       tweet = long_tweet_constructor.tweet
       tweet_with_link_removed = tweet.split('...').first
       expect(tweet_with_link_removed.length).to be 115
