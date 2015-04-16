@@ -20,6 +20,11 @@ FactoryGirl.define do
     factory :post_with_author do
       author
     end
+
+    factory :published_post do
+      published true
+      author
+    end
   end
 
   factory :post_with_long_title, class: Post do

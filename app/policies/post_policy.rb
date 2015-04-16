@@ -1,7 +1,11 @@
 class PostPolicy < ApplicationPolicy
   
-  def show?
+  def index?
     true
+  end
+
+  def show?
+    post.published? || author == post.author
   end
 
   def new?
