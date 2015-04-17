@@ -18,7 +18,7 @@ class AuthorsController < ApplicationController
     end
 
     def get_author
-      @author = Author.find(current_author)
+      @author = current_author
       authorize @author
     end
 end
