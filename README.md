@@ -17,10 +17,12 @@ TweetBlogLove is a blogging platform that notifies twitter with each new blog po
 * Form Builder: Simple Form
 
 ##Getting Started##
-1. Clone the project down to your machine with RVM installed.
-2. `cd` into the project.
-3. Run `bundle install`.
-4. `rails s` and go nuts.
+1. Install Redis (For background queueing) with `brew install redis`
+2. Clone the project down to your machine with RVM installed.
+3. `cd` into the project.
+4. Run `bundle install`.
+5. Start up the sidekiq server to process posts being published later. `bundle exec sidekiq`
+6. `rails s` and go nuts.
 
 ##Testing##
 * Acceptance Testing: Cucumber
