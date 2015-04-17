@@ -8,4 +8,4 @@ Feature: Publishing
     Then  the author should see "Edit Post"
     When  the author publishes the post later
     Then  the author should see "Post was successfully updated."
-    And   the post should be published
+    And   the post should be queued up to be published
