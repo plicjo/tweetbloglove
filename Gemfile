@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.2.1'
+ruby '2.2.2'
 gem 'rails', '4.2.1'
 gem 'passenger' # Web Server
 gem 'pg' # Postgres Database
@@ -19,6 +19,7 @@ gem 'omniauth-twitter' # Twitter Authentication
 gem 'pygments.rb' # Syntax Highlighting
 gem 'pundit' # Authorization
 gem 'redcarpet' # Markdown text
+gem 'redis' # Key-Value store server for background jobs
 gem 'responders' # Clean controllers
 gem 'sass-rails', '~> 5.0'
 gem 'sidekiq' # Background Job Queue
