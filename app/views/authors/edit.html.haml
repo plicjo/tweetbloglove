@@ -1,5 +1,5 @@
-%h1 Edit Author Profile
+%h1.top-50px.left--15px Edit Author Profile
 = simple_form_for @author, html: { class: 'form-horizontal', wrapper: :horizontal_form, multipart: true, wrapper_mappings: { check_boxes: :horizontal_radio_and_checkboxes, radio_buttons: :horizontal_radio_and_checkboxes, file: :horizontal_file_input,boolean: :horizontal_boolean } } do |f|
   = f.error_notification
   = f.input :time_zone, as: :time_zone, priority: /US/
-  = f.submit class: 'btn btn-primary top-20px bottom-10px'
+  = f.submit class: 'btn btn-primary top-20px bottom-10px left--15px'

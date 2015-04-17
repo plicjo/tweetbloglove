@@ -1,19 +1,22 @@
-.row
-  .col-xs-6
-    = simple_form_for @post, html: { class: 'form-horizontal', wrapper: :horizontal_form, multipart: true, wrapper_mappings: { check_boxes: :horizontal_radio_and_checkboxes, radio_buttons: :horizontal_radio_and_checkboxes, file: :horizontal_file_input,boolean: :horizontal_boolean } } do |f|
+= simple_form_for @post, html: { class: 'form-horizontal', wrapper: :horizontal_form, multipart: true, wrapper_mappings: { check_boxes: :horizontal_radio_and_checkboxes, radio_buttons: :horizontal_radio_and_checkboxes, file: :horizontal_file_input,boolean: :horizontal_boolean } } do |f|
+  .row
+    .col-sm-5
       = f.error_notification
       = f.input :title
       = f.input :body, input_html: { rows: 8 }
-      = image_tag(@post.featured_image_url, class: 'img-responsive') if @post.featured_image?
-      = f.label 'Upload a featured image'
-      = f.file_field   :featured_image
-      = f.hidden_field :featured_image_cache
-      = f.hidden_field :author_id, value: "#{current_author.id}" if author_signed_in?
+      = image_tag(@post.featured_image_url, class: 'img-responsive bottom-10px') if @post.featured_image?
+      .left--15px
+        = f.label 'Upload a featured image'
+        = f.file_field   :featured_image
+        = f.hidden_field :featured_image_cache
+        = f.hidden_field :author_id, value: "#{current_author.id}" if author_signed_in?
       = f.error :featured_image, id: 'featured_image_error'
       - unless current_page?(action: 'new')
         = f.input :twitter_message, label: "Twitter Message (optional)", disabled: true
       - else
         = f.input :twitter_message, label: "Twitter Message (optional)"
+      = f.submit class: 'btn btn-primary top-20px bottom-10px left--15px'
+    .col-sm-6.col-sm-offset-1
       = f.input :published, as: :boolean, label: 'Published?'
       - unless @post.published
         = f.input :publish_date, as: :datetime, label: 'Publish Later'
@@ -21,4 +24,3 @@
       - else
         = f.input :publish_date, as: :datetime, disabled: true, label: 'Post is published.'
         = f.input :publish_in_future, as: :boolean, disabled: true, label: 'To Be Published in the Future?'
-      = f.submit class: 'btn btn-primary top-20px'

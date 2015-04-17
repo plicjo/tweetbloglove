@@ -1,4 +1,4 @@
-%h1 Posts
+%h1.top-50px Posts
 .row.top-20px
   .col-md-5.bottom-20px
     %ol.list-group.list-group-outer
@@ -6,7 +6,7 @@
         %li.list-group-item
           = post.title
           .pull-right
-            = link_to 'View', post_path(post), class: 'right-10px left-10px', target: '_blank'
+            = link_to 'View', post_path(post), class: 'right-10px left-10px'
             - if policy(post).edit?
               = link_to edit_post_path(post) do
                 .left-10px.inline

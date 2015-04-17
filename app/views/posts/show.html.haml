@@ -1,4 +1,7 @@
-%h1= @post.title
+%h1.bottom-30px.top-50px.text-center= @post.title
 - if @post.featured_image?
-  #featured-image= image_tag @post.featured_image, class: 'img-responsive'
-= MarkdownService.new.markdown(@post.body)
+  .row
+    .col-sm-6.col-sm-offset-3 
+      #featured-image= image_tag @post.featured_image, class: 'img-responsive auto'
+.bottom-20px.top-20px
+  = MarkdownService.new.markdown(@post.body)
