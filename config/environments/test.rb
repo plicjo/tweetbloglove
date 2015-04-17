@@ -30,17 +30,24 @@ Rails.application.configure do
   # The :test delivery method accumulates sent emails in the
   # ActionMailer::Base.deliveries array.
   config.action_mailer.delivery_method = :test
-  config.active_job.queue_adapter      = :test
+
+  # Active Job Processor
+  config.active_job.queue_adapter = :test
+
+  # Default site host
+  Rails.application.routes.default_url_options[:host] = 'example.com'
+
   # Randomize the order test cases are executed.
   config.active_support.test_order = :random
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
   config.action_mailer.default_url_options = { host: 'test@tweetbloglove.com' }
-  Rails.application.routes.default_url_options[:host] = 'example.com'
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # Configure Capybara
   require 'capybara/poltergeist'
   Capybara.ignore_hidden_elements = false
   Capybara.default_driver         = :rack_test

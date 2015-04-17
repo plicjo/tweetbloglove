@@ -50,6 +50,8 @@ Rails.application.configure do
 
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
+
+  # Active Job Processor
   config.active_job.queue_adapter = :sidekiq
 
   # Use a different logger for distributed setups.
@@ -65,6 +67,7 @@ Rails.application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
 
+  # Default site host
   Rails.application.routes.default_url_options[:host] = 'tweetbloglove.com'
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
