@@ -11,6 +11,7 @@
 #  profile_image :string
 #  created_at    :datetime
 #  updated_at    :datetime
+#  time_zone     :string           default("Eastern Time (US & Canada)")
 #
 
 require 'rails_helper'
