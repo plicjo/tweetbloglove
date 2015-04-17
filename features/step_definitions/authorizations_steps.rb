@@ -20,6 +20,5 @@ end
 
 Then(/^the other author "(.*?)" should not see links to edit the original authors post$/) do |arg1|
   page.should have_content 'View'
-  page.should_not have_content 'Edit'
   page.should_not have_content 'Delete'
 end

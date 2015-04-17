@@ -15,6 +15,8 @@
 
 class Author < ActiveRecord::Base
   has_many :posts
+  validates :time_zone, inclusion: { in: ActiveSupport::TimeZone.zones_map(&:name).keys }
+  after_initialize :init_time_zone
 
   def self.find_or_create_from_auth_hash(auth_hash)
     author = where(provider: auth_hash.provider, uid: auth_hash.uid).first_or_create
@@ -35,4 +37,10 @@ class Author < ActiveRecord::Base
       config.access_token_secret = self.secret
     end
   end
+
+  private
+
+    def init_time_zone
+      self.time_zone ||= 'Eastern Time (US & Canada)'
+    end
 end

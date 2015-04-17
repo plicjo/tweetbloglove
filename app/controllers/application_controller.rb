@@ -1,8 +1,6 @@
 require "application_responder"
 
 class ApplicationController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
   include Pundit
@@ -10,6 +8,8 @@ class ApplicationController < ActionController::Base
 
   self.responder = ApplicationResponder
   respond_to :html
+
+  around_filter :author_time_zone, if: :current_author
 
   helper_method :current_author, :author_signed_in?
 
@@ -29,6 +29,10 @@ class ApplicationController < ActionController::Base
 
     def authenticate_author!
       redirect_to root_url, alert: 'Please sign in first.' unless current_author
+    end
+
+    def author_time_zone &block
+      Time.use_zone(current_author.time_zone, &block)
     end
 
     def author_not_authorized(exception)

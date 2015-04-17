@@ -12,6 +12,8 @@
       %ul.nav.navbar-nav.navbar-right
         - if author_signed_in?
           %li
+            = link_to 'Edit Profile', edit_author_path(current_author)
+          %li
             = link_to 'New Post', new_post_path if policy(Post).new?
           %li
             = link_to 'Sign Out', '/logout'
